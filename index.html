@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Algorithm Visualizer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <script defer src="tree.js"></script>
+</head>
+<body>
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-dark bg-dark " >
+        <div class="container-fluid d-flex justify-content-between align-items-center ">
+        <a href="#box" class="text-white fw-bold animated-text tree"><span>
+                Tree Sorting Visualizer</span></a>
+            <a href="#SAV" class="navbar-text text-white fw-bold animated-text sorting-title"><span>Sorting Algorithm Visualizer</span></a>
+
+            <!-- Menu Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav d-flex flex-row">
+                    <li class="nav-item me-3"><a class="nav-link glow-text" href="#" onclick="setAlgorithm('bubbleSort')">Bubble Sort</a></li>
+                    <li class="nav-item me-3"><a class="nav-link glow-text" href="#" onclick="setAlgorithm('selectionSort')">Selection Sort</a></li>
+                    <li class="nav-item me-3"><a class="nav-link glow-text" href="#" onclick="setAlgorithm('insertionSort')">Insertion Sort</a></li>
+                    <li class="nav-item me-3"><a class="nav-link glow-text" href="#" onclick="setAlgorithm('mergeSort')">Merge Sort</a></li>
+                    <li class="nav-item"><a class="nav-link glow-text" href="#" onclick="setAlgorithm('quickSort')">Quick Sort</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 6.5rem;">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="box" id="SAV">
+                    <label for="arrayInput" class="form-label">Enter Array (comma-separated):</label>
+                    <input type="text" id="arrayInput" class="form-control" value="5,3,8,4,2">
+                    <button class="btn btn-primary mt-2" onclick="startSorting()">Sort</button>
+                    <button class="btn btn-primary mt-2" onclick="resetSorting()">Reset</button>
+                    <div class="slider-container">
+                        <label for="speedSlider" class="animationspeed">Animation Speed</label>
+                        <input type="range" id="speedSlider" min="50" max="2000" value="500">
+                    </div>
+                    
+                    <p class="ani">Animation:</p>
+                    <div id="visualization" class="d-flex justify-content-center mt-4"></div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="box">
+                    <p id="selectedAlgorithmDisplay">Selected: Algorithm</p> 
+                    <pre id="codeDisplay" class="p-3 bg-dark text-white rounded"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="box" id="box">
+            <h3 class="ani2">Tree Sorting Visualizer</h3>
+            <input type="text" id="treeInput" class="form-control" placeholder="Enter numbers separated by commas">
+            <button class="btn btn-primary mt-2" onclick="GenerateTree()">Generate Tree</button>
+            <button class="btn btn-primary mt-2" onclick="BalanceTree()">Balance Tree</button>
+            <button class="btn btn-primary mt-2" onclick="clearTree()">Clear Tree</button>
+            <div id="treeContainer" class="tree-container"></div>
+        </div>
+    </div>
+
+</body>
+</html>
